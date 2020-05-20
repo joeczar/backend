@@ -1,0 +1,60 @@
+{
+  "kind": "collectionType",
+  "collectionName": "goals",
+  "info": {
+    "name": "Goal"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "body": {
+      "type": "richtext"
+    },
+    "startDate": {
+      "type": "date"
+    },
+    "completed": {
+      "type": "boolean"
+    },
+    "completedOn": {
+      "type": "datetime"
+    },
+    "verificationBody": {
+      "type": "richtext"
+    },
+    "verified": {
+      "type": "boolean"
+    },
+    "verificationMedia": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "goal_steps": {
+      "via": "goal",
+      "collection": "goal-step"
+    },
+    "categories": {
+      "via": "goals",
+      "collection": "category"
+    }
+  }
+}

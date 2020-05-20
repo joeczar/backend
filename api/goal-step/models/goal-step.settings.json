@@ -1,0 +1,79 @@
+{
+  "kind": "collectionType",
+  "collectionName": "goal_steps",
+  "info": {
+    "name": "Goal Step"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "body": {
+      "type": "richtext"
+    },
+    "stepNumber": {
+      "type": "integer"
+    },
+    "startDate": {
+      "type": "date"
+    },
+    "evidence": {
+      "type": "richtext"
+    },
+    "evidenceMedia": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "completed": {
+      "type": "boolean"
+    },
+    "completedOn": {
+      "type": "date"
+    },
+    "verification": {
+      "type": "richtext"
+    },
+    "verificationMedia": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "verified": {
+      "type": "boolean"
+    },
+    "verifiedOn": {
+      "type": "date"
+    },
+    "goal": {
+      "model": "goal",
+      "via": "goal_steps"
+    },
+    "started": {
+      "type": "boolean"
+    }
+  }
+}
